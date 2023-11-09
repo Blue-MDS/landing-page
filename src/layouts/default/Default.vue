@@ -10,7 +10,6 @@
 <script setup>
   import DefaultBar from './AppBar.vue'
   import DefaultView from './View.vue'
-  import FooterComp from '@/components/FooterComp.vue';
 
 </script>
 <style lang="scss">
