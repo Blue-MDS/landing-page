@@ -1,40 +1,44 @@
 <template>
-  <div class="d-flex justify-center align-center">
+  <div class="d-flex flex-column justify-center align-center">
     <div class="text-center px-4 title">
       <div class="fade-wrapper">
         <transition name="fade" mode="out-in">
-          <h1 :key="currentHeading">{{ currentHeading }}</h1>
+          <h1>C'est l'heure de la poz' plaisir</h1>
         </transition>
       </div>
-      <v-btn prepend-icon="mdi-arrow-left" rounded>Restez connecté</v-btn>
     </div>
-    <div class="package my-5 py-2 d-flex">
+    <!-- <div class="package my-5 py-2 d-flex">
       <v-img src="../assets/mint.png" class="floating-img img1"></v-img>
       <v-img src="../assets/lemon.png" class="floating-img img2"></v-img>
       <v-img :aspect-ratio="1" src="../assets/strawberry.png" class="floating-img img3"></v-img>
+    </div> -->
+    <div class="description text-center">
+      <p>Marre du dilemme : goût vs santé ? <br>
+Avec Blue, plus besoin d’y réfléchir, car nous t'offrons des vrais choix <br>
+ sains, savoureux et pratiques. Tu as une minute ? Prends ta Poz’Plaisir ! </p>
     </div>
-    <div class="description">
-      <p>Chez Blue, nous nous engageons à rendre ton hydratation ludique, engageante et facile à intégrer dans ton quotidien. </p>
-    </div>
+    <v-btn prepend-icon="mdi-arrow-left" rounded class="mt-4">Restez connecté</v-btn>
   </div>
   <div class="py-2 px-2 text-slider overflow-hidden text-no-wrap my-4">
     <div class="d-flex align-center">
       <h3 v-for="(quality, i) in [...qualities, ...qualities]" :key="i" class="text-uppercase d-flex align-center">{{ quality }}</h3>
     </div>
   </div>
-  <div class="d-flex justify-center align-center slider">
-    <CarousselComp class="mx-2" />
-    <span class="text-h2 mx-2">
-      Notre <br> Motivation
+  
+  <div class="section">
+    <SliderCompVue />
+  </div>
+  
+  <div class="section">
+    <CollapseComp />
+  </div>
+  <div class="d-flex flex-column-reverse flex-md-row justify-center align-center section">
+    <CarousselComp class="mx-md-2 mr-md-8" />
+    <span class="text-md-h3 text-h4 ml-md-8 mb-4 mb-md-0">
+      Notre <br v-if="$vuetify.display.smAndUp"> Motivation
     </span>
   </div>
-  <div class="d-flex justify-center align-center slider">
-    <span class="text-h2 mx-2">
-      Nos arômes <br> sont validés
-    </span>
-    <SliderCompVue class="mx-2" />
-  </div>
-  <div class="my-4">
+  <div class="section">
     <FormComp />
   </div>
   <!-- <v-btn prepend-icon="mdi-arrow-left" rounded /> -->
@@ -45,6 +49,8 @@ import { ref, onMounted, onUnmounted } from 'vue';
   import CarousselComp from '@/components/CarousselComp.vue';
   import SliderCompVue from '@/components/SliderComp.vue';
   import FormComp from '@/components/FormComp.vue';
+  import CollapseComp from '@/components/CollapseComp.vue';
+  import HorizontalCollapseItem from '@/components/HorizontalCollapseItem.vue';
   import StarSVG from '@/components/StarSVG.vue';
 
   const qualities = ["Arôme de fruits naturels", "Sans sucre ajouté", "Sans colorant", "Facilement transportable", "Sans édulcorant"];
@@ -73,10 +79,29 @@ onUnmounted(() => {
   clearInterval(intervalId); // Arrête l'intervalle lorsque le composant est démonté
 });
 </script>
-<style lang="scss" scoped>
-body {
-  font-family: 'Baloo Chettan 2', sans-serif;
+<style lang="scss">
+
+h1 {
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  font-size: 60px;
+  line-height: normal;
+  font-style: italic;
+}
+@media (max-width: 767px) {
+  h1 {
+    font-size: 40px;
+  }
+}
+.text-md-h3 {
+  font-size: 48px;
+  font-weight: 800;
+  font-style: italic;
+}
+.text-h4 {
+  font-size: 24px;
+  font-weight: 800;
+  font-style: italic;
 }
 .v-btn {
   border: 1.5px solid var(--Noir, #00060C);
@@ -169,12 +194,10 @@ body {
 .title {
   opacity: 0; /* Initialement invisible */
   animation: fadeIn 0.5s ease-in-out 1s forwards;
-  max-width: 400px;
 }
 .description {
   opacity: 0; /* Initialement invisible */
   animation: fadeIn 0.5s ease-in-out 3s forwards;
-  max-width: 400px;
 }
 .fade-wrapper {
   position: relative;
@@ -187,7 +210,10 @@ body {
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
 }
-.slider {
-  margin-block: 50px;
+// .slider {
+//   margin-block: 50px;
+// }
+.section {
+  padding-block: 100px;
 }
 </style>
