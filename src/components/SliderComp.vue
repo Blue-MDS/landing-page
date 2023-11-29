@@ -6,14 +6,19 @@
     </span>
     <div class="carousel-slider py-4" :style="carouselStyle">
       <div class="carousel-item" v-for="card in cards" :key="card.id">
-        <v-card class="card d-flex align-center" :class="`step${card.id}`" min-height="350" max-width="350">
-          <v-card-text class="pa-6 ">
+        <v-card class="card d-flex align-center" :class="`step${card.id}`" :max-width="$vuetify.display.smAndUp ? 350 : null">
+          <v-card-text class="d-flex flex-column justify-space-between px-6">
             <blockquote class="font-italic font-weight-bold">
               ""
             </blockquote>
-            <p>{{ card.quote }}</p>
-            <p class="name">{{ card.name }}</p>
-            <p class="occupation">{{ card.occupation }}</p>
+            <p class="quote">{{ card.quote }}</p>
+            <div class="d-flex flex-column">
+              <span class="name">
+                {{ card.name }}
+              </span>
+              <span class="occupation">
+                {{ card.occupation }}</span>
+              </div>
           </v-card-text>
         </v-card>
       </div>
@@ -21,6 +26,7 @@
   </div>
   <div class="justify-center mt-4">
       <v-btn
+      v-if="currentIndex > 0"
         rounded
         variant="text"
         @click="moveLeft"
@@ -29,6 +35,7 @@
       <v-icon icon="mdi-arrow-left"></v-icon>
       </v-btn>
       <v-btn
+      v-if="currentIndex < 6"
         rounded
         variant="flat"
         @click="moveRight"
@@ -60,24 +67,27 @@ export default {
   },
   methods: {
     moveLeft() {
+      console.log(this.currentIndex);
       this.currentIndex = Math.max(this.currentIndex - 1, 0);
     },
     moveRight() {
-      this.currentIndex = Math.min(this.currentIndex + 1, this.cards.length - 3);
+      console.log(this.currentIndex);
+      this.currentIndex = Math.min(this.currentIndex + 1, this.cards.length - (this.$vuetify.display.lgAndUp ? 3 : this.$vuetify.display.sm ? 2 : 1));
     },
   },
   computed: {
     carouselStyle() {
       const baseTranslation = -this.currentIndex * 100;
       return {
-        transform: this.$vuetify.display.mdAndUp ? `translateX(${baseTranslation / 3}%)` : `translateX(${baseTranslation}%)`,
+        transform: this.$vuetify.display.mdAndUp ? `translateX(${baseTranslation / 3}%)`: this.$vuetify.display.sm ? `translateX(${baseTranslation / 2}%)` : `translateX(${baseTranslation}%)`,
       };
     },
   },
 };
 </script>
 
-<style>
+<style lang="scss">
+
 .carousel-container {
   overflow: hidden;
   position: relative;
@@ -96,27 +106,33 @@ export default {
   border-radius: 10px;
   overflow: hidden;
   background-color: #fff;
+
+  .v-card-text {
+    padding-top: 27px;
+    padding-bottom: 43px;
+    min-height: 358px;
+    line-height: normal;
+
+      .name {
+      font-size: 16px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .occupation {
+      font-size: 16px;
+      color: #666;
+    }
+    
+    .quote {
+      font-size: 20px;
+    }
+  }
 }
-.card-content {
-  padding: 20px;
-  text-align: center;
+    
+blockquote {
+  font-size: 60px;
 }
-.blockquote {
-  quotes: "“" "”" "‘" "’";
-}
-.blockquote:before {
-  content: open-quote;
-}
-.blockquote:after {
-  content: close-quote;
-}
-.name {
-  margin-top: 20px;
-  font-weight: bold;
-}
-.occupation {
-  color: #666;
-}
+
 .step1 {
   border-color: #F86DC0;
   background: #FECEEB;
@@ -132,7 +148,7 @@ export default {
   background: #FFF7C5;
   box-shadow: 8px 8px 0px 0px #FEE440;
 }
-@media (max-width: 1142px) {
+@media (max-width: 960px) {
   .carousel-item {
     flex: 0 0 50%;
     max-width: 50%;
@@ -141,7 +157,7 @@ export default {
     width: 75% !important;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 600px) {
   .carousel-item {
     flex: 0 0 100%;
     max-width: 100%;
@@ -152,112 +168,4 @@ export default {
 }
 </style>
 
-<!-- <template>
-  <v-card
-    max-width="600"
-    flat
-  >
-    <v-window v-model="step" class="mx-8" :class="currentClass">
-      <v-window-item class="step1" :value="1">
-        <v-card-text class="pa-md-16">
-          <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut  et dolore magna aliqua. Ut enim ad minim veniam, quis consequa.”</p>
-          <span class="text-caption text-grey-darken-1">
-            This is the email you will use to login to your Vuetify account
-          </span>
-        </v-card-text>
-      </v-window-item>
 
-      <v-window-item class="step2" :value="2">
-        <v-card-text class="pa-md-16">
-          <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut  et dolore magna aliqua. Ut enim ad minim veniam, quis consequa.”</p>
-          <span class="text-caption text-grey-darken-1">
-            This is the email you will use to login to your Vuetify account
-          </span>
-        </v-card-text>
-      </v-window-item>
-
-      <v-window-item class="step3" :value="3">
-        <v-card-text class="pa-md-16">
-          <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut  et dolore magna aliqua. Ut enim ad minim veniam, quis consequa.”</p>
-          <span class="text-caption text-grey-darken-1">
-            This is the email you will use to login to your Vuetify account
-          </span>
-        </v-card-text>
-      </v-window-item>
-    </v-window>
-
-    <div class="justify-center mt-4">
-      <v-btn
-        v-if="step > 1"
-        rounded
-        variant="text"
-        @click="step--"
-      >
-      <v-icon icon="mdi-arrow-left"></v-icon>
-      </v-btn>
-      <v-btn
-        v-if="step < 3"
-        rounded
-        variant="flat"
-        @click="step++"
-      >
-      <v-icon icon="mdi-arrow-right"></v-icon>
-      </v-btn>
-    </div>
-  </v-card>
-</template>
-<script>
-  export default {
-    data: () => ({
-      step: 1,
-    }),
-
-    computed: {
-      currentTitle () {
-        switch (this.step) {
-          case 1: return 'Sign-up'
-          case 2: return 'Create a password'
-          default: return 'Account created'
-        }
-      },
-      currentClass () {
-        switch (this.step) {
-          case 1: return 'step1'
-          case 2: return 'step2'
-          default: return 'step3'
-        }
-      }
-    },
-  }
-</script>
-
-<style lang="scss" scoped>
-.v-btn {
-  border: 1.5px solid var(--Noir, #00060C);
-  border-color: black;
-  box-shadow: 4px 4px 0px 0px #00060C;
-}
-.v-window {
-  border-radius: 18px;
-  border: 1px solid;
-  p {
-    font-size: 20px;
-  }
-
-  .step1 {
-    border-color: #F86DC0;
-    background: #FECEEB;
-    box-shadow: 8px 8px #F86DC0;
-  }
-  .step2 {
-    border-color: #63E5D4;
-    background: #BEF5EE;
-    box-shadow: 8px 8px 0px 0px #63E5D4;
-  }
-  .step3 {
-    border-color: #FEE440;
-    background: #FFF7C5;
-    box-shadow: 8px 8px 0px 0px #FEE440;
-  }
-}
-</style> -->
