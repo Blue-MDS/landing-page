@@ -15,16 +15,15 @@
         </div>
       </div>
     </div>
-    <div class="mobile-container d-md-none" @scroll="handleScroll">
+    <div class="mobile-container d-md-none">
       <div 
         v-for="(section, index) in sections" 
         :key="section.title" 
-        :style="getCardStyle(index)"
         class="mobile-section d-flex flex-column align-center"
         :class="`bg-${index}`"
       >
-        <span class="px-4">{{ section.content }}</span>
-        <v-img :src="section.img" width="150" />
+        <span class="px-4 text-center">{{ section.content }}</span>
+        <v-img :src="section.img" width="280" />
       </div>
     </div>
   </div>
@@ -56,17 +55,6 @@ export default {
         }
       });
     },
-    handleScroll(event) {
-      this.scrollY = event.target.scrollTop;
-    },
-    getCardStyle(index) {
-      const overlap = 20; // la base du chevauchement en pixels
-      const dynamicOverlap = Math.min(this.scrollY / (index + 1), 50); // ajustez pour l'effet désiré
-      const translation = index * overlap - dynamicOverlap;
-      return {
-        transform: `translateY(${translation}px)`,
-      };
-    },
   },
 };
 </script>
@@ -85,14 +73,14 @@ export default {
   background-color: #63E5D4;
 }
 .collapse-container {
-  transition: all 1.5s ease;
+  transition: all 2.5s ease;
   width: 65%;
 }
 .collapse-section {
   height: 640px;
   max-width: 68px;
   flex-basis: 10%;
-  transition: flex-basis 0.5s ease, height 0.5s ease; /* Transition pour flex-basis et height */
+  transition: flex-basis 0.5s ease, max-width 0.5s, height 2.5s ease; /* Transition pour flex-basis et height */
   overflow: hidden;
   cursor: pointer;
   display: flex;
@@ -112,9 +100,13 @@ export default {
 
 .section-content {
   opacity: 0;
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
   font-size: 24px;
   padding-inline: 30px;
+
+  span {
+    min-width: 460px
+  }
 }
 .sticky-title {
   position: sticky;
@@ -124,16 +116,15 @@ export default {
   width: 100%;
 }
 
-.mobile-container {
-  max-height: 50%; /* Ajustez à la hauteur désirée */
-  overflow-y: auto;
-}
-
 .mobile-section {
-  min-height: 350px;
-  transition: transform 0.3s ease;
-  &:not(:first-child) {
-    margin-top: -20px; /* Pour que les cartes se chevauchent initialement */
+  position: sticky;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+
+  span {
+    margin-top: 73px;
+    font-size: 22px;
   }
 }
 </style>
