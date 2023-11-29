@@ -51,6 +51,7 @@ export default {
 @media (max-width: 767px) {
   .v-window-item {
     max-width: 365px;
+    height: 384px;
   }
 }
 .delimiter-container {

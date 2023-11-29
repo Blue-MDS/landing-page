@@ -55,7 +55,7 @@ const required = v => {
 </script>
 <style lang="scss" scoped>
 .input {
-  max-width: 650px;
+  max-width: 660px;
 }
 .v-btn {
   border: 1.5px solid var(--Noir, #00060C);
