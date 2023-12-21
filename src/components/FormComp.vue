@@ -1,11 +1,12 @@
 <template>
   <div class="input text-center mx-auto">
-    <h3 class="text-h4">Rejoint la communauté blue</h3>
-    <v-form v-model="form" class="d-flex justify-center align-center mt-2" @submit.prevent="onSubmit">
+    <span class="text-h4 text-md-h3"> Rejoins la communauté Blue</span>
+    <p>Laisse ton mail pour rester informer de la suite de notre aventure.</p>
+    <v-form v-model="form" class="d-flex flex-column flex-md-row justify-center align-center mt-2 px-4" @submit.prevent="onSubmit">
         <v-text-field
         v-model="email"
       :rules="[required]"
-        class="mx-4"
+        class="mx-4 w-100"
         type="email"
         rounded="20"
         placeholder="email"
@@ -54,7 +55,7 @@ const required = v => {
 </script>
 <style lang="scss" scoped>
 .input {
-  max-width: 650px;
+  max-width: 660px;
 }
 .v-btn {
   border: 1.5px solid var(--Noir, #00060C);

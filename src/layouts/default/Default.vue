@@ -3,7 +3,6 @@
     <default-bar />
 
     <default-view />
-    <!-- <FooterComp class="mt-4" /> -->
   </v-app>
 </template>
 
