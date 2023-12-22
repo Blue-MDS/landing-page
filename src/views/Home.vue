@@ -12,12 +12,12 @@
       <v-img src="../assets/lemon.png" class="floating-img img2"></v-img>
       <v-img :aspect-ratio="1" src="../assets/strawberry.png" class="floating-img img3"></v-img>
     </div> -->
-    <div class="description text-center">
+    <div class="description text-center my-8">
       <p>Marre du dilemme : goût vs santé ? <br>
 Avec Blue, plus besoin d’y réfléchir, car nous t'offrons des vrais choix <br>
  sains, savoureux et pratiques. Tu as une minute ? Prends ta Poz’Plaisir ! </p>
     </div>
-    <v-btn prepend-icon="mdi-arrow-left" rounded class="mt-4">Restez connecté</v-btn>
+    <v-btn prepend-icon="mdi-arrow-left" rounded class="my-8" href="#destination-part">Restez connecté</v-btn>
   </div>
   <div class="py-2 px-2 text-slider overflow-hidden text-no-wrap my-4">
     <div class="d-flex align-center">
@@ -39,7 +39,7 @@ Avec Blue, plus besoin d’y réfléchir, car nous t'offrons des vrais choix <br
     </span>
   </div>
   <div class="section">
-    <FormComp />
+    <FormComp id="destination-part" />
   </div>
   <!-- <v-btn prepend-icon="mdi-arrow-left" rounded /> -->
 </template>
