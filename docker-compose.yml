@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  landing:
+    build: .
+    container_name: landing
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.landing.rule=Host(`blue-france.fr`)"
+      - "traefik.http.routers.landing.entrypoints=websecure"
+      - "traefik.http.services.landing.loadbalancer.server.port=8000"
+      - "traefik.http.routers.landing.tls.certresolver=letsencrypt"
+      - "traefik.docker.network=traefik_network"
+    networks:
+      - traefik_network
+networks:
+  traefik_network:
+    external: true
