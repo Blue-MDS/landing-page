@@ -22,10 +22,16 @@ export default defineConfig({
     }),
     ViteFonts({
       google: {
-        families: [{
-          name: 'Poppins',
-          styles: 'wght@100;300;400;500;700;900',
-        }],
+        families: [
+          {
+            name: 'Poppins',
+            styles: 'wght@100;300;400;500;700;900',
+          },
+          {
+            name: 'Playfair Display',
+            styles: 'wght@100;300;400;500;700;900',
+          }
+        ],
       },
     }),
   ],
@@ -47,4 +53,13 @@ export default defineConfig({
   server: {
     port: 8000,
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import "@/styles/variables.scss";
+        `
+      }
+    }
+  }
 })
