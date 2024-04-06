@@ -11,9 +11,9 @@
             <a :href="link.path" class="link text-decoration-none mx-2 text-black">{{ link.title }}</a>
           </template>
         </ul>
-        <v-btn class="d-none d-md-flex ma-2 text-subtitle-1 button" variant="outlined">
+        <!-- <v-btn class="d-none d-md-flex ma-2 text-subtitle-1 button" variant="outlined">
           Nous financer
-        </v-btn>
+        </v-btn> -->
       </div>
     </v-container>
   </v-app-bar>
@@ -25,11 +25,11 @@
           <a class="link text-decoration-none text-black" :href="link.path">{{ link.title }}</a>
         </v-list-item>
       </template>
-      <v-list-item>
+      <!-- <v-list-item>
         <v-btn class="ma-2 text-subtitle-1 button" variant="outlined">
           Nous financer
         </v-btn>
-      </v-list-item>
+      </v-list-item> -->
     </v-list>
   </v-navigation-drawer>
 </template>

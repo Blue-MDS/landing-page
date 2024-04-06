@@ -1,5 +1,5 @@
 <template>
-  <section class="section d-block">
+  <section class="section d-flex justify-center d-md-block">
     <div class="image-with-text">
       <v-img src="@/assets/waves.png" class="image-background" />
       <span class="text-overlay font-weight-black">Des arômes naturels qui font vibrer ton eau !</span>
@@ -45,4 +45,5 @@
     transform: translate(-50%, -50%);
   }
 }
+
 </style>

@@ -1,10 +1,10 @@
 <template>
   <v-footer class="bg-black py-3">
-    <v-row justify="center" align="center" no-gutters>
-      <v-col class="text-center" cols="6" md="4">
+    <v-row class="flex-column-reverse flex-md-row" justify="center" align="center" no-gutters>
+      <v-col class="text-center my-6 my-md-0" cols="12" md="4">
         <span>©Blue -{{ new Date().getFullYear() }} — Tous droits réservés</span>
       </v-col>
-      <v-col class="text-center" cols="6" md="4">
+      <v-col class="text-center mt-6 mt-md-0" cols="12" md="4">
         <v-btn
           v-for="link in links"
           class="text-subtitle-1"
