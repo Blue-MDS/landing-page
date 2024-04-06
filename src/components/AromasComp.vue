@@ -2,7 +2,7 @@
   <section id="arm" class="d-flex flex-column justify-center mt-12">
     <div class="title d-flex flex-column text-center mb-8">
       <span class="title text-h3 font-weight-black mb-3">Ils ont hâte de te rencontrer </span>
-      <span class="subtitle mt-3">Nos arômes Fraise, Menthe, Vanille et Mirabelle arrivent très bientôt</span>
+      <span class="subtitle mt-3 px-4 px-sm-0">Nos arômes Fraise, Menthe, Vanille et Mirabelle arrivent très bientôt</span>
     </div>
     <div class="d-flex aromes justify-center">
       <v-card v-for="item in items" :key="item.id" flat>
@@ -17,7 +17,7 @@
             color="black"
             variant="flat"
             height="54"
-            @click="openDialog"
+            @click="openDialog(item.name)"
           >
             Je reste à l'affût
           </v-btn>
@@ -25,7 +25,7 @@
       </v-card>
     </div>
   </section>
-  <ModalComp v-model="showDialog" />
+  <ModalComp v-model="showDialog" :arome-name="selectedAromeName" />
 </template>
 
 <script setup>
@@ -41,9 +41,11 @@ const items = [
   { id: 3, name: 'vanilla', path: vanillaImg },
   { id: 4, name: 'mirabeau', path: mirabeauImg },
 ]
+const selectedAromeName = ref('');
 const showDialog = ref(false);
 
-const openDialog = () => {
+const openDialog = (aromeName) => {
+  selectedAromeName.value = aromeName;
   showDialog.value = true;
 };
 
@@ -75,7 +77,7 @@ $aromes: (
 section {
   .title {
     font-family: 'Playfair Display', serif !important;
-    font-size: clamp(24px, 3vw, 40px);
+    font-size: clamp(24px, 3vw, 40px) !important;
   }
   .subtitle {
     font-family: 'Poppins', sans-serif !important;

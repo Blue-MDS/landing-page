@@ -4,7 +4,7 @@
   <BlueStory id="about" />
   <AromaComp />
   <OpinionComp />
-  <CrowfundingCompVue />
+  <!-- <CrowfundingCompVue /> -->
   <ContactComp id="contact" />
 </template>
 
