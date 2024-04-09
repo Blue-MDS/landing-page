@@ -1,11 +1,10 @@
 <template>
   <section class="section pt-8 pb-8 px-8 px-sm-0">
-    <span class="title ml-8">Il était une fois Blue ...</span>
+    <span class="title ml-8">Il était une fois Blue 💧...</span>
     <CarouselCompVue class="mt-8" />
   </section>
 </template>
 <script setup>
-import { ref, } from 'vue';
 import CarouselCompVue from './CarouselComp.vue';
 </script>
 

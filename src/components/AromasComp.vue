@@ -1,8 +1,8 @@
 <template>
   <section id="arm" class="d-flex flex-column justify-center mt-12">
     <div class="title d-flex flex-column text-center mb-8">
-      <span class="title text-h3 font-weight-black mb-3">Ils ont hâte de te rencontrer </span>
-      <span class="subtitle mt-3 px-4 px-sm-0">Nos arômes Fraise, Menthe, Vanille et Mirabelle arrivent très bientôt</span>
+      <span class="title text-h3 font-weight-black mb-3">Ils ont hâte de te rencontrer 🤗</span>
+      <span class="subtitle mt-3 px-8 px-sm-0">Nos arômes Fraise, Menthe, Vanille et Mirabelle arrivent très bientôt</span>
     </div>
     <div class="d-flex aromes justify-center">
       <v-card v-for="item in items" :key="item.id" flat>
