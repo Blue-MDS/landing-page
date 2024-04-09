@@ -37,7 +37,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faLinkedin, faTiktok } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin, faTiktok, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 const links = [
   {
@@ -54,7 +54,7 @@ const links = [
   },
 ]
 const socials = [
-  // { icon: faInstagram, link: 'https://www.instagram.com' },
+  { icon: faInstagram, link: 'https://www.instagram.com/blue.aromes?igsh=YW5xd2NnZmt6YXpt' },
   { icon: faLinkedin, link: 'https://www.linkedin.com/company/blue.fr/' },
   { icon: faTiktok, link: 'https://www.tiktok.com/@blue_aromes' },
 ]

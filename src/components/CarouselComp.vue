@@ -2,7 +2,7 @@
   <div class="d-flex flex-column">
   <Carousel ref="myCarousel" :items-to-show="$vuetify.display.lgAndUp ? 1.8 : 1" :wrap-around="true" @update:modelValue="updateCurrentIndex">
     <Slide v-for="(article, index) in articles" :key="index">
-      <div class="carousel__item d-flex flex-column flex-md-row pa-md-4 align-center justify-space-around">
+      <div class="carousel__item d-flex flex-column text-left flex-md-row pa-md-4 align-center justify-space-around">
         <div class="d-flex flex-column px-6 text-uppercase">
           <span v-if="article.title" class="mb-2">{{ article.title }}</span>
           <span>{{ article.text }}</span>
