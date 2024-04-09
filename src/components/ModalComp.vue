@@ -67,7 +67,6 @@ const onSubmit = async () => {
     v$.value.$touch()
     return
   }
-  console.log('submit');
 
   try {
     await axios.post(`${apiURL}/preOrder`, {email: state.email, arome: props.aromeName})

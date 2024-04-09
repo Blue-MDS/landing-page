@@ -7,7 +7,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.landing.rule=Host(`blue-france.fr`)"
       - "traefik.http.routers.landing.entrypoints=websecure"
-      - "traefik.http.services.landing.loadbalancer.server.port=8000"
+      - "traefik.http.services.landing.loadbalancer.server.port=80"
       - "traefik.http.routers.landing.tls.certresolver=letsencrypt"
       - "traefik.docker.network=traefik_network"
     networks:
