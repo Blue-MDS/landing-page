@@ -1,6 +1,6 @@
 <template>
-  <section class="section pt-8 pb-8 px-8 px-sm-0">
-    <span class="title ml-8">Il était une fois Blue 💧...</span>
+  <section class="section pt-8 pb-8 px-5 px-sm-0">
+    <span class="title ml-8">Il était une fois Blue ...</span>
     <CarouselCompVue class="mt-8" />
   </section>
 </template>
