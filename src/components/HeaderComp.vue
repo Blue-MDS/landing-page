@@ -63,7 +63,7 @@
     align-items: center;
   }
   .image-with-text {
-    max-width: 100% !important;
+    max-width: 315px !important;
   }
   .text-overlay {
     top: 40% !important;
