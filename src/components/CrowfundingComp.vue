@@ -45,7 +45,7 @@ import banner from '@/assets/banner.jpg'
 
     .title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(24px, 3vw, 40px);
+      font-size: clamp(22px, 3vw, 40px);
     }
     .subtitle {
       font-family: 'Poppins', sans-serif;

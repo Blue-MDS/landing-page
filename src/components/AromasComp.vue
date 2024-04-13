@@ -79,7 +79,7 @@ $aromes: (
 section {
   .title {
     font-family: 'Playfair Display', serif !important;
-    font-size: clamp(24px, 3vw, 40px) !important;
+    font-size: clamp(22px, 3vw, 40px) !important;
   }
   .subtitle {
     font-family: 'Poppins', sans-serif !important;

@@ -17,7 +17,7 @@ import CarouselCompVue from './CarouselComp.vue';
   .title {
     font-family: 'Playfair Display', serif;
     font-weight: bold;
-    font-size: clamp(24px, 5vw, 40px);
+    font-size: clamp(22px, 3vw, 40px);
     color: black;
   }
 }
