@@ -1,7 +1,7 @@
 <template>
   <section class="d-flex flex-column align-center justify-center my-12 py-12">
     <span class="title font-weight-black mb-9">Rejoins la communauté Blue 😎</span>
-      <div class="d-flex flex-column mx-0 mx-md-6 my-6 my-md-0">
+      <div class="d-flex flex-column mx-5 mx-md-6 my-6 my-md-0">
         <span class="subtitle font-weight-bold">Notre Newsletter</span>
         <v-form @submit.prevent="onSubmit">
           <v-text-field
@@ -105,7 +105,7 @@ const onSubmit = async () => {
 <style lang="scss" scoped>
 .title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 3vw, 40px);
+  font-size: clamp(22px, 3vw, 40px);
 }
 .subtitle {
   font-family: 'Poppins', sans-serif;
