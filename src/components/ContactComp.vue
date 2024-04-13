@@ -23,7 +23,7 @@
             @blur="v$.checkbox.$touch"
             @change="v$.checkbox.$touch"
             label="En t’inscrivant, tu acceptes nos conditions d'utilisation et notre politique de confidentialité."></v-checkbox>
-          <v-btn class="text-subtitle-1 button mt-6" :disabled="v$.email.$invalid || !state.checkbox" color="black" width="368" height="54" @click="onSubmit">
+          <v-btn class="text-subtitle-1 button mt-6" :disabled="v$.email.$invalid || !state.checkbox" color="black" height="54" @click="onSubmit">
             S'inscrire
           </v-btn>
         </v-form>
@@ -113,9 +113,16 @@ const onSubmit = async () => {
 }
 .button {
   font-family: 'Poppins', sans-serif !important;
+  width: 368px;
 }
 :deep .v-label {
   max-width: 328px !important;
   font-size: 12px !important;
+}
+
+@media (max-width: 768px) {
+  .button {
+    width: 100%;
+  }
 }
 </style>

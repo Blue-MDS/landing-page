@@ -41,22 +41,22 @@ const currentIndex = ref(0)
 const articles = ref([
   {
     title: "Salut, nous c’est Blue 💧!",
-    text: 'Blue est né lors d’une discussion dans métro après les cours.',
+    text: 'Blue est né lors d’une discussion dans le métro après les cours',
     img: teamOne,
   },
   {
-    title: "Tu dois te demander comment c’est venu 🤔 ?",
-    text: 'C’est parti d’une femme qui avait une gourde de 3L d’eau.',
+    title: "Tu dois te demander comment l’idée est venue 🤔 ?",
+    text: 'Tout est parti d’une femme avec une gourde d’eau de 3L oui, oui t’as bien lu : 3 LITRES D’EAU !',
     img: teamSeven,
   },
   {
-    title: "Voilà, le débat qui commence…",
-    text: '« Comment on peut boire autant d’eau ?», « Comment toi tu peux ne pas aimer l’eau ? », bref on tournait en rond 😅 ! ',
+    title: "Et là le débat commence…",
+    text: '« Comment c’est possible de boire autant d’eau ?», « Comment toi tu ne peux pas aimer l’eau ? », Enfin bref, on tournait en rond 😅 ! ',
     img: teamImg,
   },
   {
-    title: "Conclusion du débat 🤝 : ",
-    text: 'C’est quand même dingue d’éviter de boire de l’eau, juste parce que ça n’a pas de goût…',
+    title: "Ce qu’on en a conclu… :",
+    text: 'C’est quand même dingue d’eviter de boire de l’eau juste parce que ça n’a pas de goût…',
     img: teamSix,
   },
   {

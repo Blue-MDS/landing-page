@@ -1,29 +1,31 @@
 <template>
-  <section id="arm" class="d-flex flex-column justify-center mt-12">
+  <section id="arm" class="d-flex flex-column justify-center mt-12 px-5">
     <div class="title d-flex flex-column text-center mb-8">
       <span class="title text-h3 font-weight-black mb-3">Ils ont hâte de te rencontrer 🤗</span>
       <span class="subtitle mt-3 px-8 px-sm-0">Nos arômes Fraise, Menthe, Vanille et Mirabelle arrivent très bientôt</span>
     </div>
-    <div class="d-flex aromes justify-center">
-      <v-card v-for="item in items" :key="item.id" flat>
-        <div class="arome d-flex flex-column justify-center align-center"
-            :class="[`${item.name}-bg`, `${item.name}-hover`]">
-          <span class="title-arome text-uppercase mb-4">{{ item.name }}</span>
-          <img :src="item.path" :alt="item.name" />
-        </div>
-        <v-card-actions class="px-0 mt-4">
-          <v-btn
-            class="text-none text-subtitle-1 button flex-grow-1"
-            color="black"
-            variant="flat"
-            height="54"
-            @click="openDialog(item.name)"
-          >
-            Je reste à l'affût
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </div>
+    <v-row justify="center" class="ma-0">
+      <v-col cols="12" sm="6" md="3" v-for="item in items" :key="item.id" class="aromes px-0">
+        <v-card flat>
+          <div class="arome d-flex flex-column justify-center align-center"
+              :class="[`${item.name}-bg`, `${item.name}-hover`]">
+            <span class="title-arome text-uppercase mb-4">{{ item.name }}</span>
+            <img :src="item.path" :alt="item.name" />
+          </div>
+          <v-card-actions class="px-0 mt-4">
+            <v-btn
+              class="text-none text-subtitle-1 button flex-grow-1"
+              color="black"
+              variant="flat"
+              height="54"
+              @click="openDialog(item.name)"
+            >
+              Je reste à l'affût
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
   </section>
   <ModalComp v-model="showDialog" :arome-name="selectedAromeName" />
 </template>
@@ -84,14 +86,16 @@ section {
     font-size: clamp(14px, 3vw, 20px);
     color: $grey;
   }
-  .aromes {
-    flex-wrap: wrap;
-    gap: 1rem;
+  .v-row {
+    gap: 12px;
   }
+  .aromes {
+      max-width: 332px;
+    }
 
   .arome {
     height: 383px;
-    width: 332px;
+    width: 100%;
     position: relative;
     overflow: hidden;
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
@@ -149,6 +153,9 @@ section {
 }
 
 @media (max-width: 768px) {
+  .aromes {
+    max-width: 100% !important;
+  }
   .arome::before, .arome img {
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
   }

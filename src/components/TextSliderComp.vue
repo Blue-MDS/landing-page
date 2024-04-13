@@ -13,7 +13,7 @@ import { ref, computed } from 'vue';
 const items = ref([
   { id: 1, text: 'Sans sucre - ' },
   { id: 2, text: 'Sans colorant - ' },
-  { id: 3, text: 'Sans addictif - ' },
+  { id: 3, text: 'Sans additif - ' },
   { id: 4, text: 'Made in France - ' },
   { id: 5, text: 'À base d’ingrédients naturels - ' },
 ]);
