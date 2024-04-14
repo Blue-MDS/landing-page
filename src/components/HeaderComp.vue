@@ -5,7 +5,7 @@
         <img src="@/assets/waves.png" class="image-background" />
         <span class="text-overlay font-weight-black">Des arômes naturels qui font vibrer ton eau !</span>
       </div>
-      <v-btn class=" d-none d-md-flex ma-2 text-subtitle-1 button" color="black" href="#arm" width="368" height="54">
+      <v-btn class=" d-none d-md-flex ma-2 text-subtitle-1 button" href="#arm" width="368" height="54" flat>
         Découvrir nos saveurs
       </v-btn>
     </div>
@@ -53,8 +53,20 @@
   width: 597px;
   }
 .button {
-  font-family: 'Poppins', sans-serif !important;
-  width: 368px;
+font-family: 'Poppins', sans-serif !important;
+width: 368px;
+background-color: #020202 !important;
+color: #FDFEFF !important;
+transition: background-color 0.3s, color 0.3s, border-color 0.3s; // Transition smooth pour le changement de style au survol
+
+&:hover {
+  background-color: #FDFEFF !important;
+  border-style: solid !important;
+  border-width: 2px !important;
+  border-color: #020202 !important;
+  color: #020202 !important;
+  text-decoration: none !important; // Annuler tout effet de décoration de texte ajouté par Vuetify
+}
 }
 @media (max-width: 768px) {
   .section {

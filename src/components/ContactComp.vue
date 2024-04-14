@@ -1,8 +1,8 @@
 <template>
   <section class="d-flex flex-column align-center justify-center my-12 py-12">
-    <span class="title font-weight-black mb-9">Rejoins la communauté Blue 😎</span>
-      <div class="d-flex flex-column mx-5 mx-md-6 my-6 my-md-0">
-        <span class="subtitle font-weight-bold">Notre Newsletter</span>
+    <span class="title font-weight-black mb-2">Rejoins la communauté Blue 😎</span>
+      <div class="d-flex flex-column mx-5 mx-md-6">
+        <span class="subtitle font-weight-bold text-center">Notre Newsletter</span>
         <v-form @submit.prevent="onSubmit">
           <v-text-field
             v-model="state.email"

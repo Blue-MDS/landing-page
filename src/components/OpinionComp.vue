@@ -2,7 +2,7 @@
   <section class="d-flex flex-column justify-center my-12 py-12 px-8">
     <v-row no-gutters>
       <v-col cols="12" md="6">
-        <div class="d-flex align-center mb-8 mb-md-0">
+        <div class="d-flex justify-center align-center mb-8 mb-md-0">
           <span class="title text-h3 font-weight-black">Qui de mieux que nos utilisateurs pour valider nos arômes 🤷‍♀️</span>
         </div>
       </v-col>

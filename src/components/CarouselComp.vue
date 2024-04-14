@@ -1,9 +1,9 @@
 <template>
   <div class="d-flex flex-column">
-  <Carousel ref="myCarousel" :items-to-show="$vuetify.display.lgAndUp ? 1.8 : 1" :wrap-around="true" @update:modelValue="updateCurrentIndex">
+  <Carousel ref="myCarousel" :items-to-show="$vuetify.display.lgAndUp ? 1.5 : 1" :wrap-around="true" @update:modelValue="updateCurrentIndex">
     <Slide v-for="(article, index) in articles" :key="index">
-      <div class="carousel__item d-flex flex-column text-left flex-md-row pa-md-4 align-center justify-space-around">
-        <div class="d-flex flex-column px-6 text-uppercase">
+      <div class="carousel__item d-flex flex-column text-left flex-sm-row pa-sm-4 align-center justify-space-between">
+        <div class="d-flex flex-column px-6 text-uppercase align-self-start align-self-md-center">
           <span v-if="article.title" class="mb-2">{{ article.title }}</span>
           <span>{{ article.text }}</span>
         </div>
@@ -107,6 +107,7 @@ const nextSlide = () => {
 
 <style lang="scss" scoped>
 .carousel__item {
+  gap: 60px;
   height: 319px;
   width: 800px;
   background-color: white;
@@ -127,12 +128,18 @@ const nextSlide = () => {
     min-width: 200px;
   }
   .carousel__item {
+    gap: 0;
     height: auto;
     div {
       font-size: 14px;
       justify-content: center;
       min-height: 150px;
     }
+
+  }
+}
+@media (max-width: 768px) {
+  .carousel__item {
     img {
       width: 100%;
       height: 288px;
