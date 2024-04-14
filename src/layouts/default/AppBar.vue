@@ -35,7 +35,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const drawer = ref(false)
 const links = [
@@ -43,6 +43,19 @@ const links = [
   { title: 'Arômes', path: '#arm' },
   { title: 'Contact', path: '#contact' }
 ]
+const handleResize = () => {
+  if (window.innerWidth > 960) {
+    drawer.value = false
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
 </script>
 
 <style lang="scss" scoped>

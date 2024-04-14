@@ -1,8 +1,8 @@
 <template>
   <section id="arm" class="d-flex flex-column justify-center mt-12 px-5">
     <div class="title d-flex flex-column text-center mb-8">
-      <span class="title text-h3 font-weight-black mb-3">Ils ont hâte de te rencontrer 🤗</span>
-      <span class="subtitle mt-3 px-8 px-sm-0">Nos arômes Fraise, Menthe, Vanille et Mirabelle arrivent très bientôt</span>
+      <span class="title text-h3 font-weight-black">Ils ont hâte de te rencontrer 🤗</span>
+      <span class="subtitle px-8 px-sm-0">Nos arômes Fraise, Menthe, Vanille et Mirabelle arrivent très bientôt</span>
     </div>
     <v-row justify="center" class="ma-0">
       <v-col cols="12" sm="6" md="3" v-for="item in items" :key="item.id" class="aromes px-0">
@@ -149,7 +149,19 @@ section {
 .mirabeau-bg { background-color: $mirabeau-bg; }
 
 .button {
-  font-family: 'Poppins', sans-serif !important;
+font-family: 'Poppins', sans-serif !important;
+background-color: #020202 !important;
+color: #FDFEFF !important;
+transition: background-color 0.3s, color 0.3s, border-color 0.3s; // Transition smooth pour le changement de style au survol
+
+&:hover {
+  background-color: #FDFEFF !important;
+  border-style: solid !important;
+  border-width: 2px !important;
+  border-color: #020202 !important;
+  color: #020202 !important;
+  text-decoration: none !important; // Annuler tout effet de décoration de texte ajouté par Vuetify
+}
 }
 
 @media (max-width: 768px) {
