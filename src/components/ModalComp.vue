@@ -2,7 +2,7 @@
   <v-dialog v-model="dialog" persistent>
     <v-card class="text-center justify-center">
       <v-icon class="btn-close" @click="close">mdi-close-circle-outline</v-icon>
-      <v-card-title class="text-h5 font-weight-black mb-3">On reste en contact</v-card-title>
+      <v-card-title class="text-h5 font-weight-black mb-3">On reste en contact 📨 !</v-card-title>
       <v-card-subtitle class="mt-3 wrap-text">
         Tu recevras un email dès que l'arôme <span class="font-weight-bold text-uppercase arome-name">{{ props.aromeName }}</span> sera disponible
       </v-card-subtitle>
