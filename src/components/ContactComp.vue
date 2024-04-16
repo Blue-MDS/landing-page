@@ -88,13 +88,20 @@ const onSubmit = async () => {
   }
 
   try {
-    await axios.post(`${apiURL}/subscribe`, {email: state.email})
-    text.value = 'Vous êtes bien inscrit à notre newsletter !';
-    snackbarColor.value = 'success'
-    clear()
+    const response = await axios.post(`${apiURL}/subscribe`, {email: state.email})
+    if (response.status === 200) {
+      text.value = 'Vous êtes bien inscrit à notre newsletter !';
+      snackbarColor.value = 'success'
+      clear()
+    }
   } catch (error) {
-    text.value = 'Une erreur est survenue. Veuillez réessayer plus tard.';
-    snackbarColor.value = 'error'
+    if (error.response.status === 400) {
+      snackbarColor.value = 'warning';
+      text.value = error.response.data.error;
+    } else {
+      snackbarColor.value = 'error';
+      text.value = 'Une erreur est survenue. Veuillez réessayer plus tard.';
+    }
   } finally {
     snackbar.value = true
   }
