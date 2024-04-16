@@ -27,6 +27,21 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
+  <v-snackbar
+      v-model="snackbar"
+      :color="snackbarColor"
+    >
+      {{ text }}
+
+      <template v-slot:actions>
+        <v-btn
+          variant="text"
+          @click="snackbar = false"
+        >
+          Fermer
+        </v-btn>
+      </template>
+    </v-snackbar>
 </template>
 
 <script setup>
@@ -63,21 +78,26 @@ function clear () {
 
 const onSubmit = async () => {
   if (v$.value.$invalid) {
-    console.log('erreur');
-    v$.value.$touch()
-    return
+    v$.value.$touch();
+    return;
   }
-
   try {
-    await axios.post(`${apiURL}/preOrder`, {email: state.email, arome: props.aromeName})
-    text.value = 'Tu recevras un email dès que l\'arôme sera disponible.';
-    snackbarColor.value = 'success'
-    clear()
+    const response = await axios.post(`${apiURL}/preOrder`, { email: state.email, arome: props.aromeName });
+    if (response.status === 200) {
+      text.value = 'Merci pour ton intéret! Tu recevras un email dès que l\'arôme sera disponible.';
+      snackbarColor.value = 'success';
+      snackbar.value = true;
+      clear();
+    }
   } catch (error) {
-    text.value = 'Une erreur est survenue. Veuillez réessayer plus tard.';
-    snackbarColor.value = 'error'
-  } finally {
-    snackbar.value = true
+    if (error.response.status === 400) {
+      snackbarColor.value = 'warning';
+      text.value = error.response.data.error;
+    } else {
+      snackbarColor.value = 'error';
+      text.value = 'Une erreur est survenue. Veuillez réessayer plus tard.';
+    }
+    snackbar.value = true;
   }
 }
 
