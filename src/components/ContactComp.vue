@@ -39,7 +39,7 @@
           variant="text"
           @click="snackbar = false"
         >
-          Close
+          Fermer
         </v-btn>
       </template>
     </v-snackbar>
@@ -89,19 +89,18 @@ const onSubmit = async () => {
 
   try {
     const response = await axios.post(`${apiURL}/subscribe`, {email: state.email})
-    if (response.status === 200) {
+    if (response.data.error) {
+      text.value = response.data.error;
+      snackbarColor.value = 'warning';
+      clear()
+    } else {
       text.value = 'Vous êtes bien inscrit à notre newsletter !';
       snackbarColor.value = 'success'
       clear()
     }
   } catch (error) {
-    if (error.response.status === 400) {
-      snackbarColor.value = 'warning';
-      text.value = error.response.data.error;
-    } else {
-      snackbarColor.value = 'error';
-      text.value = 'Une erreur est survenue. Veuillez réessayer plus tard.';
-    }
+    text.value = 'Une erreur est survenue. Veuillez réessayer plus tard.';
+    snackbarColor.value = 'error';
   } finally {
     snackbar.value = true
   }
