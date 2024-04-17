@@ -83,20 +83,19 @@ const onSubmit = async () => {
   }
   try {
     const response = await axios.post(`${apiURL}/preOrder`, { email: state.email, arome: props.aromeName });
-    if (response.status === 200) {
+    if (response.data.error) {
+      snackbarColor.value = 'warning';
+      text.value = response.data.error;     
+      clear(); 
+    } else {
       text.value = 'Merci pour ton intéret! Tu recevras un email dès que l\'arôme sera disponible.';
       snackbarColor.value = 'success';
-      snackbar.value = true;
       clear();
     }
   } catch (error) {
-    if (error.response.status === 400) {
-      snackbarColor.value = 'warning';
-      text.value = error.response.data.error;
-    } else {
-      snackbarColor.value = 'error';
-      text.value = 'Une erreur est survenue. Veuillez réessayer plus tard.';
-    }
+    snackbarColor.value = 'error';
+    text.value = 'Une erreur est survenue. Veuillez réessayer plus tard.';
+  } finally {
     snackbar.value = true;
   }
 }
